@@ -16,11 +16,6 @@ auth_views = Blueprint('auth_views', __name__, template_folder='../templates')
 Page/Action Routes
 '''
 
-@auth_views.route('/users', methods=['GET'])
-def get_user_page():
-    users = get_all_users()
-    return render_template('users.html', users=users)
-
 
 @auth_views.route('/identify', methods=['GET'])
 @login_required
@@ -28,7 +23,7 @@ def identify_page():
     return jsonify({'message': f"username: {current_user.username}, id : {current_user.id}"})
 
 
-@auth_views.route('/login', methods=['POST'])
+@auth_views.route('/login', methods=['GET'])
 def login_action():
     data = request.form
     user = login(data['username'], data['password'])
