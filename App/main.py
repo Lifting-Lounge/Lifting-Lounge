@@ -17,6 +17,17 @@ from App.controllers import (
 
 from App.views import views
 
+login_manager = LoginManager()
+
+@login_manager.user_loader
+def load_user(user_id):
+  return User.query.get(user_id)
+
+@login_manager.unauthorized_handler
+def unauthorized():
+    flash('Unauthorized!')
+    return redirect(url_for('login_page'))
+
 def add_views(app):
     for view in views:
         app.register_blueprint(view)
@@ -27,6 +38,8 @@ def configure_app(app, config, overrides):
             app.config[key] = overrides[key]
         else:
             app.config[key] = config[key]
+
+
 
 def create_app(config_overrides={}):
     app = Flask(__name__, static_url_path='/static')
@@ -49,8 +62,8 @@ def create_app(config_overrides={}):
 app = create_app()
 
 @app.route("/", methods=['GET'])
-def login_page():
-    return render_template('login.html')
+def home_page():
+    return render_template('index.html')
     
 @app.route("/login", methods = ['POST'])
 def login_action():
