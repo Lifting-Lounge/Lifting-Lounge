@@ -48,8 +48,18 @@ def create_app(config_overrides={}):
     
 app = create_app()
 
-@app.route("/login", methods=['GET'])
+@app.route("/", methods=['GET'])
 def login_page():
     return render_template('login.html')
     
-
+@app.route("/login", methods = ['POST'])
+def login_action():
+  data = request.form
+  user = User.query.filter_by(username=data['username']).first()
+  if user and user.check_password(data['password']):  
+    flash('Logged in successfully.')
+    login_user(user) 
+    return redirect('/app')
+  else:
+    flash('Invalid username or password')
+  return redirect('/')
