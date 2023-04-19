@@ -75,7 +75,7 @@ def login_action():
   if user and user.check_password(data['password']):  
     flash('Logged in successfully.')
     login_user(user) 
-    return redirect('/home')
+    return redirect('/app')
   else:
     flash('Invalid username or password')
   return redirect('/')
