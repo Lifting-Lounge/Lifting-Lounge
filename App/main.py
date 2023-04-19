@@ -17,17 +17,6 @@ from App.controllers import (
 
 from App.views import views
 
-login_manager = LoginManager()
-
-@login_manager.user_loader
-def load_user(user_id):
-  return User.query.get(user_id)
-
-@login_manager.unauthorized_handler
-def unauthorized():
-    flash('Unauthorized!')
-    return redirect(url_for('login_page'))
-
 def add_views(app):
     for view in views:
         app.register_blueprint(view)
@@ -58,23 +47,3 @@ def create_app(config_overrides={}):
     setup_flask_login(app)
     app.app_context().push()
     return app
-    
-app = create_app()
-
-@app.route("/", methods=['GET'])
-def home_page():
-    return render_template('index.html')
-
-
-
-@app.route("/login", methods = ['POST'])
-def login_action():
-  data = request.form
-  user = User.query.filter_by(username=data['username']).first()
-  if user and user.check_password(data['password']):  
-    flash('Logged in successfully.')
-    login_user(user) 
-    return redirect('/app')
-  else:
-    flash('Invalid username or password')
-  return redirect('/')
