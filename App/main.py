@@ -64,7 +64,10 @@ app = create_app()
 @app.route("/", methods=['GET'])
 def home_page():
     return render_template('index.html')
-    
+
+@app.route("/app", methods = ['GET'])
+    return redirect(url_for('home_page'))
+
 @app.route("/login", methods = ['POST'])
 def login_action():
   data = request.form
@@ -72,7 +75,7 @@ def login_action():
   if user and user.check_password(data['password']):  
     flash('Logged in successfully.')
     login_user(user) 
-    return redirect('/app')
+    return redirect('/home')
   else:
     flash('Invalid username or password')
   return redirect('/')
