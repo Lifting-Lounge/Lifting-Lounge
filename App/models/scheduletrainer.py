@@ -15,4 +15,7 @@ class ScheduleTrainer(db.Model):
     self.time = time
     self.booked =booked
     
-  
+  def book_appt(trainer, booked): 
+    if(!booked): 
+      booked = True
+      #idk here either sorry
