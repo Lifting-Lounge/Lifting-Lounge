@@ -8,7 +8,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String, unique= True, nullable = False)
     payment_info = db.Column(db.String)
 
-    def __init__(self, username, password):
+    def __init__(self, username, password, email, payment_info):
         self.username = username
         self.set_password(password)
         self.email = email
