@@ -25,7 +25,7 @@ def login_action():
     user = login(data['username'], data['password'])
     if user:
         login_user(user)
-        return 'user logged in!'
+        return redirect('/home')
     return 'bad username or password given', 401
 
 @auth_views.route('/logout', methods=['GET'])
