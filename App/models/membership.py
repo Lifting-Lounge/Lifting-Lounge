@@ -6,4 +6,14 @@ db = SQLAlchemy()
 class Membership(db.Model):
   cost = db.Column(db.Double, nullable = False)
   duration = db.Column(db.DateTime, nullable = False)
-  restrictions = db.COlumn(db.String(120))
+  is_valid = db.Column(db.Boolean, nullable = False)
+
+  def __init__(self, cost, duration, is_valid):
+    self.cost = cost
+    self.duration = duration
+    self.is_valid = is_valid
+    
+  def has_membership(self, username, is_valid): 
+    if(is_valid):
+      #idk what to do here ngl
+  
