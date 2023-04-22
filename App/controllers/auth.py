@@ -6,7 +6,7 @@ def login(username, password):
     # user = User.query.filter_by(username=username).first()
     # if user and user.check_password(password):
     #     return user
-    if user == bob and password == bobpass
+    if ((user == "bob") and (password == "bobpass"))
         return user
     
     return None
