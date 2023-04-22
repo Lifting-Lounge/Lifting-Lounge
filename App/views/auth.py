@@ -24,14 +24,11 @@ def login_action():
     data = request.form
     username = data['username']
     password = data['password']
-    url = "/"+username+password
-    
-    return redirect (url)
-    # user = login(data['username'], data['password'])
-    # if user:
-    #     login_user(user)
-    #     return redirect('/home')
-    # return 'bad username or password given', 401
+    user = login(username, password)
+    if user:
+        login_user(user)
+        return redirect('/home')
+    return 'bad username or password given', 401
 
 @auth_views.route('/logout', methods=['GET'])
 def logout_page():
