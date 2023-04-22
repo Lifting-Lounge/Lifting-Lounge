@@ -10,3 +10,18 @@ class Routines(db.Model):
   routine_name = db.Column(db.String(120))
   day = db.Column(db.String(120)) 
   
+  def __init__(self, workout_name, reps, sets, routine_name, day):
+    self.workout_name = workout_name
+    self.reps = reps
+    self.sets = sets
+    self.routine_name = routine_name
+    self.day = day
+    
+  def get_json(self): 
+    return{
+      "workout_name": workout_name
+      "reps": reps
+      "sets": sets
+      "routine_name": routine_name
+      "day": day
+    }
