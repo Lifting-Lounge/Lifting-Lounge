@@ -1,5 +1,4 @@
 from flask import Blueprint, render_template, jsonify, request, send_from_directory, flash, redirect, url_for
-from flask_jwt_extended import jwt_required, current_user as jwt_current_user
 from flask_login import login_required, login_user, current_user, logout_user
 
 from.index import index_views
@@ -24,7 +23,7 @@ def identify_page():
 
 
 @auth_views.route('/login', methods=['GET'])
-def login_action():
+def login_page():
     data = request.form
     user = login(data['username'], data['password'])
     if user:
@@ -33,7 +32,7 @@ def login_action():
     return 'bad username or password given', 401
 
 @auth_views.route('/logout', methods=['GET'])
-def logout_action():
+def logout_page():
     data = request.form
     user = login(data['username'], data['password'])
     return 'logged out!'
