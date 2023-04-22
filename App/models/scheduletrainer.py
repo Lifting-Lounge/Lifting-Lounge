@@ -8,3 +8,11 @@ class ScheduleTrainer(db.Model):
   trainer = db.Column(db.String(120))
   time = db.Column(db.DateTime)
   booked = db.Column(db.Boolean)
+
+  def __init__(self,username, trainer, time, booked):
+    self.username = username
+    self.trainer= trainer
+    self.time = time
+    self.booked =booked
+    
+  
