@@ -20,3 +20,5 @@ def setup_flask_login(app):
     
     return login_manager
 
+
+

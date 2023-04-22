@@ -14,7 +14,7 @@ auth_views = Blueprint('auth_views', __name__, template_folder='../templates')
 Page/Action Routes
 '''
 
-@auth_views.route('/', methods=['GET'])
+@auth_views.route('/login_page', methods=['GET'])
 def login_page():
     return render_template('login.html')
 
@@ -26,12 +26,30 @@ def login_action():
     user = login(username, password)
     if user:
         login_user(user)
-        return redirect('/home')
+        return redirect('/')
     return 'bad username or password given', 401
 
 @auth_views.route('/logout', methods=['GET'])
-def logout_page():
+def logout_action():
+    logout_user()
+    return redirect('/')
+
+@auth_views.route('/signup_page', methods=['GET'])
+def signup_page():
+    return render_template('signup.html')
+
+@auth_views.route('/signup', methods = ['POST'])
+def signup_action():
     data = request.form
-    user = login(data['username'], data['password'])
-    return 'logged out!'
+    username = data['username']
+    password = data['password']
+    email = data['email']
+    payment = data['payment']
+    user = create_user(username, password, email, payment)
+    if user:
+        login_user(user)
+        return redirect('/')
+    else:
+        return 'Username or email already in use!'
+    
 

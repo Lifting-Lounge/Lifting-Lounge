@@ -1,6 +1,20 @@
 {% extends "layout.html" %}
 {% block title %}Lifting Lounge{% endblock %}
-{% block page %}Lifting Lounge{% endblock %}
+
+
+{% block page %}
+
+
+{% if current_user.is_authenticated %}
+    Welcome to the Lifting Lounge {{current_user.username}}!
+{% else %}
+    Lifting Lounge
+{% endif %}
+
+
+{% endblock %}
+
+
 
 {% block link%}
 {% endblock %}
@@ -8,5 +22,5 @@
 {{ super() }}
 
 {% block content %}
-    <h1>THISISATEST DONOTPANIC</h1>
+    <h1>THISISA</h1>
 {% endblock %}
