@@ -25,7 +25,7 @@ def login_action():
     username = data['username']
     password = data['password']
     url = "/"+username+password
-    print url
+    
     return redirect (url)
     # user = login(data['username'], data['password'])
     # if user:
