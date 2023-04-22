@@ -22,11 +22,16 @@ def login_page():
 @auth_views.route('/login', methods = ['POST'])
 def login_action():
     data = request.form
-    user = login(data['username'], data['password'])
-    if user:
-        login_user(user)
-        return redirect('/home')
-    return 'bad username or password given', 401
+    username = data['username']
+    password = data['password']
+    url = "/"+username+password
+    print url
+    return redirect (url)
+    # user = login(data['username'], data['password'])
+    # if user:
+    #     login_user(user)
+    #     return redirect('/home')
+    # return 'bad username or password given', 401
 
 @auth_views.route('/logout', methods=['GET'])
 def logout_page():
