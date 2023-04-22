@@ -11,6 +11,8 @@ class User(db.Model, UserMixin):
     def __init__(self, username, password):
         self.username = username
         self.set_password(password)
+        self.email = email
+        self.payment_info = payment_info
 
     def get_json(self):
         return{
