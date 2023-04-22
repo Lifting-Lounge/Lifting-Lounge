@@ -3,7 +3,8 @@ from flask_login import UserMixin
 from App.database import db
 
 class User(db.Model, UserMixin):
-    username =  db.Column(db.String, primary_key=True, nullable=False, unique=True)
+    id = db.Column(db.Integer, primary_key=True)
+    username =  db.Column(db.String, nullable=False, unique=True)
     password = db.Column(db.String(120), nullable=False)
     email = db.Column(db.String, unique= True, nullable = False)
     payment_info = db.Column(db.String)
@@ -27,3 +28,8 @@ class User(db.Model, UserMixin):
         """Check hashed password."""
         return check_password_hash(self.password, password)
 
+    def is_active(self):
+       return True
+
+    def __repr__(self):
+       return f'<User {self.id} {self.username}>'
