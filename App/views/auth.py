@@ -15,15 +15,18 @@ auth_views = Blueprint('auth_views', __name__, template_folder='../templates')
 Page/Action Routes
 '''
 
-@auth_views.route('/login', methods=['GET'])
+@auth_views.route('/', methods=['GET'])
 def login_page():
     return render_template('login.html')
-    # data = request.form
-    # user = login(data['username'], data['password'])
-    # if user:
-    #     login_user(user)
-    #     return 'user logged in!'
-    # return 'bad username or password given', 401
+
+@auth_views.route('/login', methods = ['POST'])
+def login_action():
+    data = request.form
+    user = login(data['username'], data['password'])
+    if user:
+        login_user(user)
+        return 'user logged in!'
+    return 'bad username or password given', 401
 
 @auth_views.route('/logout', methods=['GET'])
 def logout_page():
