@@ -18,7 +18,7 @@ class Equipment(db.Model):
     return{
       'name': name
       'category': category
-      
+    }
       
   def exercises(has_exercises): 
       if(has_exercises): 

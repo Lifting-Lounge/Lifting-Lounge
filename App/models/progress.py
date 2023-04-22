@@ -18,7 +18,7 @@ class Progress(db.Model):
     self.routine = routine
     
   
-  def get_json(self);
+  def get_json(self):
     return{
       'height': height
       'weight': weight
@@ -27,5 +27,5 @@ class Progress(db.Model):
       'routine': routine
     }
   
-  def new_measurements(): 
+  # def new_measurements(): 
     
