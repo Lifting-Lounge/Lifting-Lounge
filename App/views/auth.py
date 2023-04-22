@@ -22,7 +22,7 @@ def identify_page():
     return jsonify({'message': f"username: {current_user.username}, id : {current_user.id}"})
 
 
-@auth_views.route('/login', methods=['GET'])
+@auth_views.route('/login', methods=['GET', 'POST'])
 def login_page():
     data = request.form
     user = login(data['username'], data['password'])
