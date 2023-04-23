@@ -50,6 +50,19 @@ def list_user_command(format):
 app.cli.add_command(user_cli) # add the group to the cli
 
 '''
+Exercises Commands
+'''
+@exercies_cli.command("load", help="Loads exercises from the api into the database")
+@click.argument("page", default=1)
+def load_exercise_command(page):
+    exercises = load_api_muscle
+    print(f"{len(games)} games loaded from API")
+
+app.cli.add_command(exercises_cli)
+
+
+
+'''
 Test Commands
 '''
 
