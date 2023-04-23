@@ -27,7 +27,8 @@ def login_action():
     if user:
         login_user(user)
         return redirect('/')
-    return 'bad username or password given', 401
+    flash ('bad username or password given')
+    return redirect('/login_page')
 
 @auth_views.route('/logout', methods=['GET'])
 def logout_action():
@@ -50,6 +51,7 @@ def signup_action():
         login_user(user)
         return redirect('/')
     else:
-        return 'Username or email already in use!'
+        flash ('Username or email already in use!')
+        return redirect('/signup_page')
     
 

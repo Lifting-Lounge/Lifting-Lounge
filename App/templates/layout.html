@@ -27,12 +27,26 @@
               <li> <a href="/signup_page">Signup</a></li>
             </ul>
           {%endif%}
+        
         </div> 
       </div>
     </nav>
 
+    <div class="messages">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div id="alert" class="col s10 offset-s1">
+          <a href="" id="close">&times;</a>
+          {% for message in messages %}
+            <div style="font-weight: bold;text-align: center;font-size: 1.2em;margin-top: -5px;">{{ message }}</div>
+          {% endfor %}
+        </div>
 
+        {% endif %}
+      {% endwith %}
+    </div>
     <div class="container" id="content">{% block content %}{% endblock %}</div>
+    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>
