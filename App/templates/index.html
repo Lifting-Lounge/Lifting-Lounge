@@ -1,20 +1,7 @@
 {% extends "layout.html" %}
 {% block title %}Lifting Lounge{% endblock %}
 
-
-{% block page %}
-
-
-{% if current_user.is_authenticated %}
-    Welcome to the Lifting Lounge {{current_user.username}}!
-{% else %}
-    Lifting Lounge
-{% endif %}
-
-
-{% endblock %}
-
-
+{% block page %}<img src = '/static/logo.png' width="290" height="40"/>{% endblock %}
 
 {% block link%}
 {% endblock %}
@@ -22,5 +9,5 @@
 {{ super() }}
 
 {% block content %}
-    <h1>THISISA</h1>
+    <a href="https://www.youtube.com/watch?v=poa_QBvtIBA">HEHEHE</a>
 {% endblock %}
