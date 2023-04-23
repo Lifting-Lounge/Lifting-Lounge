@@ -1,13 +1,15 @@
 from flask import Blueprint, redirect, render_template, request, send_from_directory, jsonify
 from App.models import db
-from App.controllers import (create_user, get_all_exercises)
+from App.controllers import (create_user, get_all_exercises, load_api_muscle)
 
 index_views = Blueprint('index_views', __name__, template_folder='../templates')
 
 @index_views.route('/', methods=['GET'])
 def index_page():
-    # exercises = get_all_exercises()
-    return render_template('index.html')
+    muscle = "biceps"
+    exercises = load_api_muscle(muscle)
+    
+    return render_template('index.html', exercises=exercises)
 
 @index_views.route('/init', methods=['GET'])
 def init():

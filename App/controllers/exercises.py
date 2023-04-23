@@ -21,8 +21,18 @@ def get_all_exercises ():
 
 def load_api_muscle (muscle):
     api_url = 'https://api.api-ninjas.com/v1/exercises?muscle={}'.format(muscle)
-    response = requests.get(api_url, headers={'X-Api-Key': 'YOUR_API_KEY'})
+    response = requests.get(api_url, headers={'X-Api-Key': 'vJxo3r4nHGTiSprXx+0Jdg==ckMfjuOP0gRZAi5Q'})
     if response.status_code == requests.codes.ok:
         return json.loads(response.text)
     else:
         print("Error:", response.status_code, response.text)
+
+def cache_api_exercises():
+    exercises_json = load_api_muscle(biceps)
+    exercises_list = []
+    for exercises in exercises_json:
+        new_exercise = Exercises(name=exercises['name'], type = exercises['type'], equipment=exercises['equipment'], difficulty=exercises['difficulty'], instructions = exercises['instructions'])
+        exercises_list.append(new_exercise)
+        db.session.add(new_exercise)
+    db.session.commit()
+    return exercises_list

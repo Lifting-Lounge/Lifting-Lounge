@@ -4,7 +4,7 @@ from flask.cli import with_appcontext, AppGroup
 
 from App.database import db, get_migrate
 from App.main import create_app
-from App.controllers import ( create_user, get_all_users_json, get_all_users, get_all_exercises )
+from App.controllers import ( create_user, get_all_users_json, get_all_users, get_all_exercises, load_api_muscle )
 
 # This commands file allow you to create convenient CLI commands for testing controllers
 
@@ -54,15 +54,15 @@ app.cli.add_command(user_cli) # add the group to the cli
 '''
 Exercises Commands
 '''
-# exercises_cli = AppGroup('exercises', help = "commands for exercises")
+exercises_cli = AppGroup('exercises', help = "commands for exercises")
 
-# @exercises_cli.command("load", help="Loads exercises from the api into the database")
-# @click.argument("page", default=1)
-# def load_exercise_command(page):
-#     exercises = load_api_muscle(biceps)
-#     print(f"{len(games)} games loaded from API")
+@exercises_cli.command("load", help="Loads exercises from the api into the database")
+@click.argument("biceps", default = "biceps")
+def load_exercise_command(biceps):
+    exercise_list = load_api_muscle("biceps")
+    print(f"{len(exercise_list)} exercises loaded from API")
 
-# app.cli.add_command(exercises_cli)
+app.cli.add_command(exercises_cli)
 
 '''
 Test Commands
