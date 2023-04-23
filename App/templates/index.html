@@ -9,24 +9,21 @@
 {{ super() }}
 
 {% block content %}
-    <a href="https://www.youtube.com/watch?v=poa_QBvtIBA">HEHEHE</a>
-    
     <div class="row">
-        {% for exercise in exercises %}
+    {% for exercise in exercises %}
         <div class="col s12 m4">
-                <div class="card black accent-3">
-                    <div class="card-content white-text">
-                        <span class="card-title">{{exercise.name}}</span>
-                        <p>Type: {{exercise.type}}</p>
-                        <p>Muscle: {{exercise.muscle}}</p>
-                        <p>Eqipment: {{exercise.equipment}}</p>
-                        <p>Difficulty: {{exercise.difficulty}}</p>
-                        <p>Instructions: <a href="https://www.youtube.com/watch?v=poa_QBvtIBA">HEHEHE</a> </p>
-                    </div>
-                    
-                </div>
+            <div class="card black accent-3">
+                <div class="card-content white-text">
+                    <span class="card-title">{{exercise.name}}</span>
+                    <p>Type: {{exercise.type}}</p>
+                    <p>Muscle: {{exercise.muscle}}</p>
+                    <p>Eqipment: {{exercise.equipment}}</p>
+                    <p>Difficulty: {{exercise.difficulty}}</p>
+                    <p>Instructions: <a href="https://www.youtube.com/watch?v=poa_QBvtIBA">HEHEHE</a> </p>
+                </div>  
+            </div>
         </div>
-        {% endfor %}
+    {% endfor %}
     </div>
 
 {% endblock %}
