@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block title %}Lifting Lounge{% endblock %}
+
+{% block page %}<img src = '/static/logo.png' width="290" height="40"/>{% endblock %}
+
+{% block link%}
+{% endblock %}
+
+{% block content %}
+
+<!-- put code here -->
+<!-- look at login.html and signup.html for inspiration -->
+
+{% endblock %}
