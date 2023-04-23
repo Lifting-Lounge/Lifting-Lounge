@@ -4,6 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 db = SQLAlchemy()
 
 class Routines(db.Model):
+  routine_id = db.Column(db.Integer, primary_key= True)
   workout_name = db.Column(db.String(120), nullable = False)
   reps = db.Column(db.Integer) 
   sets = db.Column(db.Integer) 
@@ -19,9 +20,9 @@ class Routines(db.Model):
     
   def get_json(self): 
     return{
-      "workout_name": workout_name
-      "reps": reps
-      "sets": sets
-      "routine_name": routine_name
+      "workout_name": workout_name,
+      "reps": reps,
+      "sets": sets,
+      "routine_name": routine_name,
       "day": day
     }

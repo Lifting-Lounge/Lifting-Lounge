@@ -2,8 +2,8 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql.expression import func 
 db = SQLAlchemy()
 
-class Exercises(db.model):
-    name = db.Column(db.String(120), nullable = False)
+class Exercises(db.Model):
+    name = db.Column(db.String(120),primary_key = True, nullable = False)
     type = db.Column(db.String(120), nullable = False)
     muscle = db.Column(db.String(120), nullable = False)
     equipment = db.Column(db.String(120), nullable = False)

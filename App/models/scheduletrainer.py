@@ -4,7 +4,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 db = SQLAlchemy()
 
 class ScheduleTrainer(db.Model):
-  username = db.Column(db.String(80), nullable = False, db.ForeignKey('user.username')) 
+  user_id = db.Column(db.Integer, db.ForeignKey('user.id')) 
+  trainer_id = db.Column(db.Integer, primary_key = True)
   trainer = db.Column(db.String(120))
   time = db.Column(db.DateTime)
   booked = db.Column(db.Boolean)
@@ -16,6 +17,6 @@ def __init__(self,username, trainer, time, booked):
     self.booked =booked
     
 def book_appt(trainer, booked): 
-  if(!booked): 
+  if(booked == False): 
     booked = True
     #idk here either sorry

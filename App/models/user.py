@@ -7,7 +7,7 @@ class User(db.Model, UserMixin):
     username =  db.Column(db.String, nullable=False, unique=True)
     password = db.Column(db.String(120), nullable=False)
     email = db.Column(db.String, unique= True, nullable = False)
-    payment_info = db.Column(db.String)
+    payment_info = db.Column(db.String, nullable = False)
 
     def __init__(self, username, password, email, payment_info):
         self.username = username

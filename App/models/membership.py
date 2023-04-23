@@ -4,7 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 db = SQLAlchemy()
 
 class Membership(db.Model):
-  cost = db.Column(db.Double, nullable = False)
+  cost = db.Column(db.Double, primary_key=True, nullable = False)
   duration = db.Column(db.DateTime, nullable = False)
   is_valid = db.Column(db.Boolean, nullable = False)
 
@@ -16,4 +16,4 @@ class Membership(db.Model):
   def has_membership(self, username, is_valid): 
     if(is_valid):
       #idk what to do here ngl
-  
+      pass

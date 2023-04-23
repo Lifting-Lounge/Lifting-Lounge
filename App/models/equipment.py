@@ -5,18 +5,18 @@ db = SQLAlchemy()
 
 class Equipment(db.Model):
   category = db.Column(db.String(120), nullable = False)
-  name = db.Column(db.String(120), unique = True, nullable = False)
+  name = db.Column(db.String(120),primary_key= True, unique = True, nullable = False)
   has_exercises = db.Column(db.Boolean, nullable= False)
-  exercises = db.Column(db.String) 
+  exercises = db.Column(db.String(120)) 
 
   def __init__(self, name, category):
     self.name = name
     self.category = category
     
     
-  get_json(self):
+  def get_json(self):
     return{
-      'name': name
+      'name': name,
       'category': category
     }
       

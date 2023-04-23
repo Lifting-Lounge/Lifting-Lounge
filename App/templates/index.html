@@ -10,4 +10,20 @@
 
 {% block content %}
     <a href="https://www.youtube.com/watch?v=poa_QBvtIBA">HEHEHE</a>
+    
+    <div class="row">
+        {% for exercise in exercises %}
+        <div class="col s12 m4">
+                <div class="card blue accent-3">
+                    <div class="card-content white-text">
+                        <span class="card-title">{{exercise.name}}</span>
+                        <p>Price: {{exersise.type}}</p>
+                        <p>Condition: {{exercise.difficulty}}</p>
+                    </div>
+                    
+                </div>
+        </div>
+        {% endfor %}
+    </div>
+
 {% endblock %}
