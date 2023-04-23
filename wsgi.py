@@ -61,7 +61,6 @@ Exercises Commands
 # app.cli.add_command(exercises_cli)
 
 
-
 '''
 Test Commands
 '''
