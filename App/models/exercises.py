@@ -1,6 +1,4 @@
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.sql.expression import func 
-db = SQLAlchemy()
+from App.database import db
 
 class Exercises(db.Model):
     name = db.Column(db.String(120),primary_key = True, nullable = False)

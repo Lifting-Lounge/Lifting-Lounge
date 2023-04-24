@@ -7,8 +7,11 @@ from werkzeug.utils import secure_filename
 from werkzeug.datastructures import  FileStorage
 from datetime import timedelta
 
+from App.models import db
 from App.database import init_db
+from App.views import views
 from App.config import config
+
 
 from App.controllers import (
     setup_flask_login
@@ -44,4 +47,7 @@ def create_app(config_overrides={}):
     init_db(app)
     setup_flask_login(app)
     app.app_context().push()
+
+
+    db.create_all()
     return app

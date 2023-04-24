@@ -1,7 +1,5 @@
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.sql.expression import func 
+from App.database import db
 from werkzeug.security import generate_password_hash, check_password_hash
-db = SQLAlchemy()
 
 class Membership(db.Model):
   cost = db.Column(db.Double, primary_key=True, nullable = False)
