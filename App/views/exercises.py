@@ -2,8 +2,7 @@ from flask import Blueprint, redirect, render_template, request, flash, send_fro
 from flask_login import current_user
 from App.controllers import (get_all_exercises, load_api_muscle)
 
-from.index import index_views
-from.exercise import exercise_views
+
 
 exercise_views = Blueprint('exercise_views', __name__, template_folder='../templates')
 
