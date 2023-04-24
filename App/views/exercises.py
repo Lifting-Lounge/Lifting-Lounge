@@ -6,9 +6,10 @@ exercise_views = Blueprint('exercise_views', __name__, template_folder='../templ
 
 @exercise_views.route('/exercises', methods=['GET'])
 def muscle_page():
-    muscle = "biceps"
+    data = request.form
+    muscle = data['muscle']
     exercises = load_api_muscle(muscle)
     if exercises:
         return render_template('index.html', exercises=exercises)
     flash ("Muscle not found!")
-    return render_template('index.html)')
+    return redirect('/')
