@@ -54,6 +54,9 @@
             </div>
             
         </div>
+
+
+
     {%endfor%}
     {% if current_user.is_authenticated %}
         <form id="message_form" method="POST" action="/add_forum" >
@@ -63,4 +66,20 @@
     {% else %}
         <h6 style = "text-align:center;color: aliceblue;">Please login or signup to post to the forum.</h6>
     {%endif%}
+
+    
+        <div class="navi-bar">
+            <div style="height: 80px; width: 200px; background-color: black;">
+                <img src='/static/logo.png' style=" background-color: black; width: 190px; height: auto; padding-top: 15%;" />
+            </div>
+
+            <a href="/profile"><button class="nav-button-flare">Profile</button></a>
+            <button class="nav-button-flare">My Progress</button>
+            <button class="nav-button-flare">My Workouts</button>
+            <button class="nav-button-flare">Equipment</button>
+            <button class="nav-button-flare">Book Trainer</button>
+            <button class="nav-button-flare">Chat</a></button>
+            <button class="nav-button-flare" style="margin-top: 170px;"><a href="/logout">Log Out</a></button>
+
+        </div>
 {% endblock %}
