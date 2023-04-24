@@ -7,9 +7,69 @@
 {% endblock %}
 
 {% block content %}
-    <p style = 'color:aliceblue'> DeLeTe ThIs i JuSt TeStInG If iT wOrKinG</p>
-    <img src = "https://media.tenor.com/0EDznml5BDAAAAAC/cat-spinning.gif">
+<style>
+    .boxes-for-things{
+        height: 60px;
+        width: 900px;
+        border: 4px;
+        border-color: black;
+        background-color: #9A8C98;
+        font-size: 30px;
+        font-family: 'Times New Roman', Times, serif;
+        margin: 10px;
+       
+    }
+    .button-flare{
+        border: 5mm;
+        border-radius: 100px;
+        height: 40px;
+        width: 120px;
+        align: right;
+        background-color: azure;
+        font-size: 25px;
+        font-family: 'Times New Roman', Times, serif;
+        margin: 10px;
+    }
+    .profile-pic{
+        height: 100px;
+        width: auto;
+        display: inline; 
+        vertical-align: middle;
+        float: middle;
+      
+    }
+   
     
+</style>
+    <!-- <p style = 'color:aliceblue'> DeLeTe ThIs i JuSt TeStInG If iT wOrKinG</p>
+    <img src = "https://media.tenor.com/0EDznml5BDAAAAAC/cat-spinning.gif"> -->
+<div>
+    <h2 style ="font-family: 'Times New Roman', Times, serif;">My Profile  <img src = "https://media.tenor.com/0EDznml5BDAAAAAC/cat-spinning.gif" class = "profile-pic"><button class = "button-flare" style="float: right;">Log Out</button> </h2>
+   
+   
+</div>
+
+<div class="boxes-for-things">
+    <p style="text-align: left; padding-left: 4px;">Username <button class = "button-flare" style="float: right;">Change</button> </p>
+   
+</div>
+<div class="boxes-for-things">
+    <p style="text-align: left; padding-left: 4px;">Password <button class = "button-flare" style="float: right;">Change</button> </p>
+   
+</div>
+<div class="boxes-for-things">
+    <p style="text-align: left; padding-left: 4px;">Payment Method <button class = "button-flare" style="float: right;">Change</button> </p>
+   
+</div>
+<div class="boxes-for-things">
+    <p style="text-align: left; padding-left: 4px;">Pay Fees <button class = "button-flare" style="float: right;">Pay</button> </p>
+   
+</div>
+<div class= "boxes-for-things" style="background: none;">
+    <p><button class="button-flare" style ="margin-left: 360px; margin-right: 300px; width: auto; padding-left:8px; padding-right: 8px;"> Delete Account </button></p>
+</div>
+
+
 <!-- put code here -->
 <!-- look at login.html and signup.html for inspiration -->
 
