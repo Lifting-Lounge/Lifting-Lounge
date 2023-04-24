@@ -5,3 +5,4 @@ from .membership import *
 from .payment import *
 from .routines import *
 from .scheduletrainer import *
+from .forum import *
