@@ -5,14 +5,12 @@ class Forum(db.Model):
     username = db.Column(db.String(120), nullable = False)
     message = db.Column(db.String(240), nullable = False)
 
-    def __init__(self, message_id, username, message):
-        self.ownerId = message_id
+    def __init__(self, username, message):
         self.username = username
         self.message = message
 
     def toJSON(self):
         return{
-            'message_id': self.message_id,
             'username': self.username,
             'message': self.message,
         }

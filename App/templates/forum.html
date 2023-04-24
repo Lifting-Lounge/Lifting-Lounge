@@ -7,14 +7,23 @@
     <div class = center style = 'color: aliceblue;'>
         <h4>Forums</h4>
     </div>
-    {% for message in messages %}
+    {% for messages in message %}
         <div class="col s12 m4">
             <div class="card black accent-3">
                 <div class="card-content white-text">
-                    <span class="card-title">{{message.username}}</span>
-                    <p>Message: {{message.message}}</p>
+                    <span class="card-title">{{messages.username}}</span>
+                    <p>Message: {{messages.message}}</p>
                 </div>  
             </div>
+            
         </div>
     {%endfor%}
+    {% if current_user.is_authenticated %}
+        <form id="message_form" method="POST" action="/add_forum" >
+            <input placeholder="Add Message" id="message" name="message" type="text" style= "color:#f5f7f7; border-radius: 35px; height: 25px; border: 2px solid #f5f7f7; padding: 9px;">
+            <input type="submit" class="btn btn-secondary" value="Post" style = "border-radius: 12px;">
+        </form>
+    {% else %}
+        <p style = 'color: aliceblue;'>Please login or signup to post to the forum.</p>
+    {%endif%}
 {% endblock %}

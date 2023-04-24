@@ -4,7 +4,7 @@ from flask.cli import with_appcontext, AppGroup
 
 from App.database import db, get_migrate
 from App.main import create_app
-from App.controllers import ( create_user, get_all_users_json, get_all_users, get_all_exercises, load_api_muscle, create_message )
+from App.controllers import (create_user, get_all_users_json, get_all_users, get_all_messages, get_all_exercises, load_api_muscle, create_message )
 
 # This commands file allow you to create convenient CLI commands for testing controllers
 
@@ -76,6 +76,11 @@ forum_cli = AppGroup('forums', help = "commands for exercises")
 def load_exercise_command(username, message):
     create_message(username, message)
     print(f'{message} created!')
+
+
+@forum_cli.command("list", help="Lists messages in the database")
+def list_user_command():
+    print(get_all_messages())
 
 app.cli.add_command(forum_cli)
 
