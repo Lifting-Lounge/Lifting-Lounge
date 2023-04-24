@@ -1,7 +1,7 @@
 from App.models import Exercises
 from App.database import db
 from App.config import config
-# import requests
+import requests
 import json
 
 def create_exercise(name, type, muscle, equiptment, difficulty, instructions):

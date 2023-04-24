@@ -4,12 +4,13 @@ from App.controllers import (create_user, get_all_exercises, load_api_muscle)
 
 index_views = Blueprint('index_views', __name__, template_folder='../templates')
 
-@index_views.route('/', methods=['GET'])
+@index_views.route('/', methods=['GET'])        #loads biceps as default
 def index_page():
-    muscle = "biceps"
+    muscle = "lats"
     exercises = load_api_muscle(muscle)
     
     return render_template('index.html', exercises=exercises)
+
 
 @index_views.route('/init', methods=['GET'])
 def init():
