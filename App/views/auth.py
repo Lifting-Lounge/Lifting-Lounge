@@ -26,14 +26,14 @@ def login_action():
     user = login(username, password)
     if user:
         login_user(user)
-        return redirect('/')
+        return redirect('/home')
     flash ('Incorrect username or password given!')
     return redirect('/login_page')
 
 @auth_views.route('/logout', methods=['GET'])
 def logout_action():
     logout_user()
-    return redirect('/')
+    return redirect('/home')
 
 @auth_views.route('/signup_page', methods=['GET'])
 def signup_page():
@@ -49,7 +49,7 @@ def signup_action():
     user = create_user(username, password, email, payment)
     if user:
         login_user(user)
-        return redirect('/')
+        return redirect('/home')
     else:
         flash ('Username or email already in use!')
         return redirect('/signup_page')
