@@ -47,7 +47,7 @@ def create_app(config_overrides={}):
     init_db(app)
     setup_flask_login(app)
     app.app_context().push()
-
+    wsgi.init()
 
     db.create_all()
     return app
