@@ -27,7 +27,7 @@ def login_action():
     if user:
         login_user(user)
         return redirect('/')
-    flash ('Bad username or password given')
+    flash ('Incorrect username or password given!')
     return redirect('/login_page')
 
 @auth_views.route('/logout', methods=['GET'])
