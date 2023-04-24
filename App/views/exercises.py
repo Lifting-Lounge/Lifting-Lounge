@@ -7,7 +7,8 @@ exercise_views = Blueprint('exercise_views', __name__, template_folder='../templ
 
 @exercise_views.route('/exercises', methods=['GET','POST'])
 def muscle_action():
-    muscle = str(request.form)  
+    muscle = request.form 
+
     exercises = load_api_muscle(muscle)
     
     return render_template('index.html', exercises=exercises)
