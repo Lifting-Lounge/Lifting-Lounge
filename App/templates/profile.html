@@ -7,7 +7,6 @@
 {% endblock %}
 
 {% block content %}
-<!-- put code here -->
 <style>
    .boxes-for-things {
         height: 60px;
@@ -69,44 +68,45 @@
 
     }
 </style>
-  
-<div>
-    <h2 style ="font-family: 'Times New Roman', Times, serif;">My Profile  <img src = "https://media.tenor.com/0EDznml5BDAAAAAC/cat-spinning.gif" class = "profile-pic"><a href ="/logout"><button class = "button-flare" style="float: right;">Log Out</button></a> </h2>
-   
-   
-</div>
+{% if current_user.is_authenticated %}
+    <div>
+        <h2 style ="font-family: 'Times New Roman', Times, serif;">My Profile  <img src = "https://media.tenor.com/0EDznml5BDAAAAAC/cat-spinning.gif" class = "profile-pic"><a href ="/logout"><button class = "button-flare" style="float: right;">Log Out</button></a> </h2>
+    
+    
+    </div>
 
-<div class="boxes-for-things">
-    <p style="text-align: left; padding-left: 4px;">Username <button class = "button-flare" style="float: right;">Change</button> </p>
-   
-</div>
-<div class="boxes-for-things">
-    <p style="text-align: left; padding-left: 4px;">Password <button class = "button-flare" style="float: right;">Change</button> </p>
-   
-</div>
-<div class="boxes-for-things">
-    <p style="text-align: left; padding-left: 4px;">Payment Method <button class = "button-flare" style="float: right;">Change</button> </p>
-   
-</div>
-<div class="boxes-for-things">
-    <p style="text-align: left; padding-left: 4px;">Pay Fees <button class = "button-flare" style="float: right;">Pay</button> </p>
-   
-</div>
-<div class= "boxes-for-things" style="background: none;">
-    <p><button class="button-flare" style ="margin-left: 360px; margin-right: 300px; width: auto; padding-left:8px; padding-right: 8px;"> Delete Account </button></p>
-</div>
+    <div class="boxes-for-things">
+        <p style="text-align: left; padding-left: 4px;">Username <button class = "button-flare" style="float: right;">Change</button> </p>
+    
+    </div>
+    <div class="boxes-for-things">
+        <p style="text-align: left; padding-left: 4px;">Password <button class = "button-flare" style="float: right;">Change</button> </p>
+    
+    </div>
+    <div class="boxes-for-things">
+        <p style="text-align: left; padding-left: 4px;">Payment Method <button class = "button-flare" style="float: right;">Change</button> </p>
+    
+    </div>
+    <div class="boxes-for-things">
+        <p style="text-align: left; padding-left: 4px;">Pay Fees <button class = "button-flare" style="float: right;">Pay</button> </p>
+    
+    </div>
+    <div class= "boxes-for-things" style="background: none;">
+        <p><button class="button-flare" style ="margin-left: 360px; margin-right: 300px; width: auto; padding-left:8px; padding-right: 8px;"> Delete Account </button></p>
+    </div>
 
-<div class = "navi-bar">
-     <a href="/profile"><button class="nav-button-flare">Profile</button></a>
-     <button class="nav-button-flare">My Progress</button>
-     <button class="nav-button-flare">My Workouts</button>
-     <button class="nav-button-flare">Equipment</button>
-     <button class="nav-button-flare">Book Trainer</button>
-     <button class="nav-button-flare">Chat</button>
-     <a href ="/logout"><button class="nav-button-flare" style="margin-top: 200px;">Log Out</button></a>
+    <div class = "navi-bar">
+        <a href="/profile"><button class="nav-button-flare">Profile</button></a>
+        <button class="nav-button-flare">My Progress</button>
+        <button class="nav-button-flare">My Workouts</button>
+        <button class="nav-button-flare">Equipment</button>
+        <button class="nav-button-flare">Book Trainer</button>
+        <button class="nav-button-flare">Chat</button>
+        <a href ="/logout"><button class="nav-button-flare" style="margin-top: 200px;">Log Out</button></a>
 
-</div>
-
-
+    </div>
+{% else %}
+    <h1 style = 'text-align: center; color:aliceblue;'>Please sign in to view Profile</h1>
+{% endif %}
 
 {% endblock %}
