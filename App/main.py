@@ -46,6 +46,8 @@ def create_app(config_overrides={}):
     add_views(app)
     init_db(app)
     setup_flask_login(app)
+    with app.app_context():
+        db.create_all()
     app.app_context().push()
 
     db.create_all()
