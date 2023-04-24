@@ -4,7 +4,7 @@ from App.config import config
 import requests
 import json
 
-def create_exercise(name, type, muscle, equiptment, difficulty, instructions):
+def create_exercise(name, type, muscle, equipment, difficulty, instructions):
     newExercise = Exercises (name = name, type = type, equipment = equipment, difficulty = difficulty, instructions = instructions)
     db.session.add (newExercise)
     db.session.commit()
