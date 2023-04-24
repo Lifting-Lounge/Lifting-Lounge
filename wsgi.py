@@ -75,7 +75,7 @@ forum_cli = AppGroup('forums', help = "commands for exercises")
 @click.argument("message", default = "Hello")
 def load_exercise_command(username, message):
     create_message(username, message)
-    print(f'{message} created!')
+    print(f'{message} created by user {username}!')
 
 
 @forum_cli.command("list", help="Lists messages in the database")

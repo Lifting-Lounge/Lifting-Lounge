@@ -14,5 +14,8 @@ class Forum(db.Model):
             'username': self.username,
             'message': self.message,
         }
+    
+    def __repr__(self):
+       return f'<Forum {self.message_id} {self.username}>'
 
 
