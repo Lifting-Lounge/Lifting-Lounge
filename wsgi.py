@@ -4,7 +4,7 @@ from flask.cli import with_appcontext, AppGroup
 
 from App.database import db, get_migrate
 from App.main import create_app
-from App.controllers import (create_user, get_all_users_json, get_all_users, get_all_messages, get_all_exercises, load_api_muscle, create_message )
+from App.controllers import (create_user, get_all_users_json, get_all_users, get_all_messages, delete_message, get_all_exercises, load_api_muscle, create_message )
 
 # This commands file allow you to create convenient CLI commands for testing controllers
 
@@ -73,14 +73,20 @@ forum_cli = AppGroup('forums', help = "commands for exercises")
 @forum_cli.command("load", help="Loads messages into the database")
 @click.argument("username", default = "bob")
 @click.argument("message", default = "Hello")
-def load_exercise_command(username, message):
+def load_forum_command(username, message):
     create_message(username, message)
     print(f'{message} created by user {username}!')
 
 
 @forum_cli.command("list", help="Lists messages in the database")
-def list_user_command():
+def list_forum_command():
     print(get_all_messages())
+
+@forum_cli.command("delete", help="deletes a message in the database")
+@click.argument("del_message_id", default = "1")
+def delete_forum_command(del_message_id):
+    delete_message(del_message_id)
+    print ("Deleted message with id ", del_message_id)
 
 app.cli.add_command(forum_cli)
 

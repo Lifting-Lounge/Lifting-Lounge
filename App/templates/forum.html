@@ -13,6 +13,13 @@
                 <div class="card-content white-text">
                     <span class="card-title">{{messages.username}}</span>
                     <p>Message: {{messages.message}}</p>
+                    {% if current_user.username == messages.username %}
+                    <div class="align-right">
+                        <form id="delete_message" method = "POST" action= "/delete_message/{{messages.message_id}}">
+                            <input type="Submit" class="btn btn-secondary" value="Delete" style = "text-align: right; border-radius: 12px;">
+                        </form>
+                    </div>
+                    {%endif%}
                 </div>  
             </div>
             
@@ -24,6 +31,6 @@
             <input type="submit" class="btn btn-secondary" value="Post" style = "border-radius: 12px;">
         </form>
     {% else %}
-        <p style = 'color: aliceblue;'>Please login or signup to post to the forum.</p>
+        <h6 style = "text-align:center;color: aliceblue;">Please login or signup to post to the forum.</h6>
     {%endif%}
 {% endblock %}

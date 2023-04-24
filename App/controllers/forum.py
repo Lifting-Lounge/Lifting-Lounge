@@ -15,3 +15,11 @@ def create_message(username, message):
 
 def get_all_messages():
     return Forum.query.all()
+
+def delete_message(del_message_id):
+    message = Forum.query.filter_by(message_id=del_message_id).first()
+    if message:
+        db.session.delete(message)
+        db.session.commit()
+        return True
+    return None
