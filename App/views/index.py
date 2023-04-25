@@ -7,10 +7,10 @@ index_views = Blueprint('index_views', __name__, template_folder='../templates')
 @index_views.route('/home', methods=['GET'])        #loads biceps as default
 def index_page():
     muscle = "biceps"
-    exercises = load_api_muscle(muscle)
+    # exercises = load_api_muscle(muscle)
     
-    return render_template('index.html', exercises=exercises)
-
+    # return render_template('index.html', exercises=exercises)
+    return render_template('index.html')
 
 @index_views.route('/', methods=['GET'])
 def init():
